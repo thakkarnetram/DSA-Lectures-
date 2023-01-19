@@ -1,0 +1,11 @@
+{
+  "files.associations": {
+    "ostream": "cpp",
+    "iostream": "cpp",
+    "xutility": "cpp",
+    "initializer_list": "cpp",
+    "xiosbase": "cpp",
+    "xstring": "cpp"
+  },
+  "C_Cpp.errorSquiggles": "disabled"
+}
