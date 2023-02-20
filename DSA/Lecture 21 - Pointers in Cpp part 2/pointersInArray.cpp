@@ -14,5 +14,6 @@ int main()
     cout << "Using Star : " << (*arr) + 1 << endl; // here it is arr[0] value+ 1 i.e arr[0] = 1+1 =>2
     int k = 3;
     cout << k[arr];
+
     return 0;
 }
