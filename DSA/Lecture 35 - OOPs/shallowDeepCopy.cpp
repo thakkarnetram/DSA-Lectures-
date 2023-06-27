@@ -70,7 +70,7 @@ public:
 int main()
 {
     Person okay;
-    okay.setX(45);
+    okay.setX(445);
     okay.setA('A');
     char b[4] = "ANC";
     okay.setB(b);
