@@ -22,6 +22,14 @@ void InsertAtHead(Node *&head, int data) // &head to send the original head & no
     head = temp;
 }
 
+void InsertAtTail(Node *&tail, int data) // &tail to send the original tail & not making a copy of it
+{
+    // new node
+    Node *temp = new Node(data);
+    tail->next = temp;
+    tail = temp;
+}
+
 void IterationNode(Node *&head)
 {
     Node *temp = head;
@@ -37,12 +45,16 @@ int main()
 {
     Node *node = new Node(34);
     Node *head = node;
+    Node *tail = node;
     // print
     IterationNode(head);
-    // insert node
-    InsertAtHead(head, 364);
-    InsertAtHead(head, 64);
-    InsertAtHead(head, 654);
+    // insert node at head
+    // InsertAtHead(head, 364);
+    // InsertAtHead(head, 64);
+    // InsertAtHead(head, 654);
+    InsertAtTail(tail, 364);
+    InsertAtTail(tail, 64);
+    InsertAtTail(tail, 654);
     // print
     IterationNode(head);
     return 0;
