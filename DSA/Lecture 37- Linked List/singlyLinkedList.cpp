@@ -6,11 +6,23 @@ class Node
 public:
     int x;
     Node *next;
-
+    //  constructor
     Node(int data)
     {
         this->x = data;
         this->next = NULL;
+    }
+    // destructor
+    ~Node()
+    {
+        // memory free
+        int val = this->x;
+        if (this->next != NULL)
+        {
+            delete next;
+            this->next = NULL;
+        }
+        cout << "Memory is free for Node With value " << val << endl;
     }
 };
 
@@ -64,6 +76,43 @@ void InsertAtMid(Node *&tail, Node *&head, int position, int data)
     temp->next = nodeToInsert;
 }
 
+void DeleteNode(int position, Node *&head)
+{
+    // start node
+    if (position == 1)
+    {
+        Node *temp = head;
+        // delete the first node
+        head = head->next;
+        // memory free
+        temp->next = NULL;
+        delete temp;
+    }
+    else
+    {
+        // delete node for middle or end
+        Node *current = head;
+        Node *previous = NULL;
+        // count
+        int count = 1;
+        // looping through
+        while (count < position)
+        {
+            // prev -> current
+            previous = current;
+            // current -> next
+            current = current->next;
+            // ++
+            count++;
+        }
+        // last node
+        previous->next = current->next;
+        // memory free
+        current->next = NULL;
+        delete current;
+    }
+}
+
 void IterationNode(Node *&head)
 {
     Node *temp = head;
@@ -91,11 +140,17 @@ int main()
     InsertAtTail(tail, 64);
     InsertAtTail(tail, 654);
     // insert node at middle
-    InsertAtMid(tail, head, 7, 22);
+    InsertAtMid(tail, head, 4, 22);
     // print
     IterationNode(head);
     // check the head & tail
     cout << "HEAD : " << head->x << endl;
     cout << "TAIL : " << tail->x << endl;
+    // print b4 delete 
+    IterationNode(head);
+    // delete
+    DeleteNode(2, head);
+    // print after delete
+    IterationNode(head);
     return 0;
 }
